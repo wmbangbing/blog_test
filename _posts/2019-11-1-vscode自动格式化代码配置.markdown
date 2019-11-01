@@ -1,24 +1,15 @@
-<!--
- * @Author: your name
- * @Date: 2019-10-31 14:49:50
- * @LastEditTime: 2019-11-01 10:06:46
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \my_blog\_posts\2015-02-24-vscode自动格式化代码配置.markdown
- -->
-
 ---
-
-title: "Markdown Extra Components test！！！！！"
+title: "如何在 vscode 中自动格式化代码配置"
 layout: post
-date: 2016-02-24 22:48
+date: 2019-11-1 14:00
 image: /assets/images/markdown.jpg
 headerImage: false
-tag: - vscode - 格式化
+tag:
+    - vscode
+    - 格式化
 category: blog
 author: ming kan
 description: 如何在 vscode 中自动格式化代码配置
-
 ---
 
 ## 代码规范理由:
