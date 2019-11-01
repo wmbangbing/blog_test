@@ -1,0 +1,116 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-31 14:49:50
+ * @LastEditTime: 2019-11-01 10:06:46
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \my_blog\_posts\2015-02-24-vscode自动格式化代码配置.markdown
+ -->
+
+---
+
+title: "Markdown Extra Components test！！！！！"
+layout: post
+date: 2016-02-24 22:48
+image: /assets/images/markdown.jpg
+headerImage: false
+tag: - vscode - 格式化
+category: blog
+author: ming kan
+description: 如何在 vscode 中自动格式化代码配置
+
+---
+
+## 代码规范理由:
+
+-   项目开发过程中，代码维护所占的时间一般是比代码编写要多的，因此良好的代码规范是一个项目开发中不可获取的一部分，这既避免了基本的语法错误，也提高了可读性。
+
+-   统一的代码规范可以避免在使用 git、svn 等工具时造成不必要的代码差异。
+
+---
+
+## 背景介绍：
+
+-   编译工具
+
+    -   Vs Code
+
+*   开发方向
+
+    -   前端
+    -   Vue
+
+*   采用插件
+
+    -   esLint
+    -   Prettier
+    -   vetur
+
+---
+
+## 问题：
+
+-   js、css、html、vue 文件的自动格式化。
+
+-   自带格式化工具的不合理配置。
+
+---
+
+## 解决方案：
+
+在 vscode 中依次访问如下：
+
+-   文件->首选项->设置->用户->setting.json
+
+添加如下配置代码
+
+```
+
+{
+  // 每次保存自动格式化
+  "editor.formatOnSave": true,
+  // 每次保存eslint自动格式化
+  "eslint.autoFixOnSave": true,
+  // eslint支持的文件类型
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "css",
+  ],
+  // vue格式文件的自动格式化，采用prettier
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      // 取消分号
+      "semi": false,
+      // 单引号
+      "singleQuote": true
+    }
+  },
+  // 引用.prettierrc.js文件配置，js文件自动格式化
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}
+
+
+```
+
+项目中新建文件，文件名为.prettierrc.js，添加代码如下
+
+```
+
+module.exports = {
+  semi: false, //在代码尾部添加分号
+  singleQuote: true, //把双引号换成单引号
+  trailingComma: 'es5', //在代码尾部添加逗号
+}
+
+```
+
+---
+
+# 参考资料
+
+[梳理前端开发使用 eslint 和 prettier 来检查和格式化代码问题](https://www.godblessyuan.com/2018/04/%E6%A2%B3%E7%90%86%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BD%BF%E7%94%A8eslint%E5%92%8Cprettier%E6%9D%A5%E6%A3%80%E6%9F%A5%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98.html "线上猛如虎，线下怂如鼠
+")
